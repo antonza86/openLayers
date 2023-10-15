@@ -1,0 +1,34 @@
+<div id="map" class="map"></div>
+
+<div class="control">
+  <button (click)="toggleIgnData()">{{ 'layer.' + (!ignSelected ? 'add' : 'remove') | translate }}</button>
+
+  <button (click)="toggleMarkers()">{{ 'marker.' + (!markersSelect ? 'add' : 'remove') | translate }}</button>
+
+  <ng-container *ngIf="markersSelect">
+    <button *ngIf="!routeLayer; else removeRouteButton" (click)="addRouteBetween()" translate>route.add</button>
+    <ng-template #removeRouteButton>
+      <button (click)="removeRoute()" translate>route.remove</button>
+    </ng-template>
+  </ng-container>
+
+  <button *ngIf="!shapeLayer; else removeShapeButton" (click)="addShape()" translate>shape.add</button>
+  <ng-template #removeShapeButton>
+    <button (click)="removeShape()" translate>shape.remove</button>
+  </ng-template>
+
+  <select [(ngModel)]="currentLanguage" name="language" (change)="onLanguageChange($event)">
+    <option value="en">EN</option>
+    <option value="es">ES</option>
+  </select>
+</div>
+
+<div id="popup" class="ol-popup">
+  <div id="popup-content"></div>
+</div>
+
+<div *ngIf="infoContent" class="info-popup">
+  <div class="info-content" [innerHTML]="infoContent">
+  </div>
+  <button class="close-btn" (click)="closeInfo()">X</button>
+</div>

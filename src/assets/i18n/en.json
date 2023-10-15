@@ -1,0 +1,21 @@
+{
+  "map": {
+    "info": "Information"
+  },
+  "layer": {
+    "add": "Add IGN layer",
+    "remove": "Remove IGN layer"
+  },
+  "marker": {
+    "add": "Add markers",
+    "remove": "Remove markers"
+  },
+  "route": {
+    "add": "Add route",
+    "remove": "Remove route"
+  },
+  "shape": {
+    "add": "Add shape",
+    "remove": "Remove shape"
+  }
+}
